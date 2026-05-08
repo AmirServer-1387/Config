@@ -33,8 +33,15 @@
   "dns": {
     "servers": [
       {
-        "tag": "doh-server",
+        "tag": "dns-remote",
         "address": "https://dns.google/dns-query",
+        "address_resolver": "dns-local",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
         "detour": "direct"
       }
     ]
