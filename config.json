@@ -29,5 +29,14 @@
       "type": "direct",
       "tag": "direct"
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      {
+        "tag": "doh-server",
+        "address": "https://dns.google/dns-query",
+        "detour": "direct"
+      }
+    ]
+  }
 }
