@@ -1,0 +1,49 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "naive",
+      "tag": "naive-in",
+      "listen": "0.0.0.0",
+      "listen_port": 443,
+      "users": [
+        {
+          "username": "nv_n7Y2kQxP",
+          "password": "nv_pR9zLm4WvB8sT1q"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "acme": {
+          "domain": "panel.loguvo.com",
+          "email": "admin@loguvo.com"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "dns-local",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      }
+    ]
+  }
+}
