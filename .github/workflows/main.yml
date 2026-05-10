@@ -1,1 +1,10 @@
-
+name: Open Panel Tunnel
+on: workflow_dispatch
+jobs:
+  tunnel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH Tunnel
+        run: |
+          sudo apt install sshpass -y
+          sshpass -p '${{ secrets.SERVER_PASSWORD }}' ssh -o StrictHostKeyChecking=no -L 8000:10.10.227.97:8000 root@154.91.170.7 -p 22 -N
